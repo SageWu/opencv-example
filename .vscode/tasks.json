@@ -1,0 +1,48 @@
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "build active file",
+      "command": "/usr/bin/g++",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.o",
+        "-I", "/usr/local/include/opencv2",
+        "-L", "/usr/local/lib/",
+        "-l", "opencv_core",
+        "-l", "opencv_imgcodecs",
+        "-l", "opencv_imgproc",
+        "-l", "opencv_highgui",
+        "-l", "opencv_video",
+        "-l", "opencv_videoio"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "process",
+      "label": "run active file",
+      "command": "${fileDirname}/${fileBasenameNoExtension}.o",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": [
+        "build active file"
+      ]
+    }
+  ],
+  "version": "2.0.0"
+}
