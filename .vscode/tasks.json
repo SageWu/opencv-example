@@ -1,6 +1,14 @@
 {
   "tasks": [
     {
+      "label": "create out dir",
+      "command": "mkdir",
+      "args": [
+        "-p",
+        "${fileDirname}/out"
+      ]
+    },
+    {
       "type": "cppbuild",
       "label": "build active file",
       "command": "/usr/bin/g++",
@@ -8,7 +16,7 @@
         "-g",
         "${file}",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}.o",
+        "${fileDirname}/out/${fileBasenameNoExtension}.o",
         "-I", "/usr/local/include/opencv2",
         "-L", "/usr/local/lib/",
         "-l", "opencv_core",
@@ -27,12 +35,15 @@
       "group": {
         "kind": "build",
         "isDefault": true
-      }
+      },
+      "dependsOn": [
+        "create out dir"
+      ]
     },
     {
       "type": "process",
       "label": "run active file",
-      "command": "${fileDirname}/${fileBasenameNoExtension}.o",
+      "command": "${fileDirname}/out/${fileBasenameNoExtension}.o",
       "options": {
         "cwd": "${workspaceFolder}"
       },
