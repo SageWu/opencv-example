@@ -11,7 +11,7 @@ int main() {
   Mat img = imread(path);
   // 显示图片
   imshow("show image", img);
-  // 等待
+  // 等待按键
   waitKey(0);
 
   return 0;
