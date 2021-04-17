@@ -24,7 +24,8 @@
         "-l", "opencv_imgproc",
         "-l", "opencv_highgui",
         "-l", "opencv_video",
-        "-l", "opencv_videoio"
+        "-l", "opencv_videoio",
+        "-l", "opencv_objdetect"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
